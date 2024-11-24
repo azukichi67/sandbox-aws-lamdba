@@ -68,3 +68,22 @@ npm run dev
 
 - see
   - https://zenn.dev/pupepa/articles/cda017645f63d4
+
+## Jest
+
+```
+npm i -D jest
+npm i -D @types/jest
+npm i -D ts-jest
+npx ts-jest config:init
+```
+
+```
+// 常に実行されないように setting.json で設定
+"jest.runMode": "on-demand"
+```
+
+- see
+  - https://typescriptbook.jp/tutorials/jest
+  - https://jestjs.io/ja/docs/configuration
+  - https://zenn.dev/fuqda/articles/a4d0bd213bf868
