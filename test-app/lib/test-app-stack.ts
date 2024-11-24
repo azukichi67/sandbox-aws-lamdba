@@ -22,11 +22,10 @@ export class TestAppStack extends cdk.Stack {
         new nodejs.NodejsFunction(this, "Lambda", {
             functionName: "test-lambda",
             runtime: lambda.Runtime.NODEJS_22_X,
-            entry: "lambda/src/hello-world.ts",
+            entry: "lambda/src/index.ts",
             timeout: cdk.Duration.seconds(3),
             role,
             bundling: {
-                externalModules: ["*"],
                 format: nodejs.OutputFormat.ESM,
             },
         });

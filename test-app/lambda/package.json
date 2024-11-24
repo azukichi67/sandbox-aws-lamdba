@@ -1,12 +1,22 @@
 {
-  "name": "lambda",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": ""
+    "name": "lambda",
+    "type": "module",
+    "scripts": {
+        "dev": "tsx watch src/index.ts",
+        "build": "esbuild --bundle --outfile=./dist/index.js --platform=node --target=node20 ./src/index.ts",
+        "zip": "zip -j lambda.zip dist/index.js",
+        "update": "aws lambda update-function-code --zip-file fileb://lambda.zip --function-name hello",
+        "deploy": "run-s build zip update"
+    },
+    "devDependencies": {
+        "esbuild": "^0.21.4",
+        "npm-run-all2": "^6.2.0",
+        "tsx": "^4.19.2"
+    },
+    "dependencies": {
+        "@hono/node-server": "^1.13.7",
+        "csv-parse": "^5.6.0",
+        "csv-writer": "^1.6.0",
+        "hono": "^4.6.11"
+    }
 }
