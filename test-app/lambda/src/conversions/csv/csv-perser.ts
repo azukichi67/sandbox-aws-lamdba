@@ -6,7 +6,10 @@ export type ParseRule = {
     [header: string]: any;
 };
 
-export async function* parse<T extends ParseRule>(csvPath: string, rule: T) {
+export async function* parse<T extends ParseRule>(
+    csvPath: string,
+    rule: T
+): AsyncGenerator<T, void, unknown> {
     const stream = createReadStream(csvPath);
     const parser: Parser = stream.pipe(
         csvParse({
@@ -20,6 +23,6 @@ export async function* parse<T extends ParseRule>(csvPath: string, rule: T) {
             R.map((x, i) => ({ [keys[i]]: x })),
             R.mergeAll
         );
-        yield parsedRecord;
+        yield parsedRecord as T;
     }
 }
