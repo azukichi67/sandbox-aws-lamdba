@@ -1,5 +1,5 @@
 import { resolve } from "path";
-import { populate } from "../../src/xlsx/xlsx-populater";
+import { populate } from "../../src/conversions/xlsx/xlsx-populater";
 
 describe("xlsx-populater", () => {
     it("populate", async () => {

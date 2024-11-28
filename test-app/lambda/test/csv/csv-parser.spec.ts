@@ -1,5 +1,5 @@
 import { resolve } from "path";
-import { parse } from "../../src/csv/csv-perser";
+import { parse } from "../../src/conversions/csv/csv-perser";
 
 describe("csv-perser", () => {
     it("parse", async () => {

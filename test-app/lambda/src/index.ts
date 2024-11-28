@@ -1,12 +1,4 @@
-import { Hono } from "hono";
-import { handle } from "hono/aws-lambda";
+import { streamHandle } from "hono/aws-lambda";
+import { app } from "./app";
 
-const app = new Hono();
-
-app.get("/", (c) => {
-    return c.text("Hello Hono!");
-});
-
-// serve(app);
-
-export const handler = handle(app);
+export const handler = streamHandle(app);
